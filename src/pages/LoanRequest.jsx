@@ -1,104 +1,159 @@
 import { useState } from "react";
 
 export default function LoanRequest(){
-    const [amount, setAmount] = useState("");
-    const [message, setMessage] = useState("");
-    const [loanPurpose, setLoanPurpose] = useState("");
-    const [tenure, setTenure] = useState("");
-    const [incomeSource, setIncomeSource] = useState("");
-    const [loading, setLoading] = useState(false);
-    const handleSubmit = () => {
-        if (!amount || !message || !loanPurpose || !tenure || !incomeSource) {
-          alert("Fill all fields");
-          return;
-        }
+    const [form, setForm] = useState({
+        occupation: "",
+        accountAge: "",
+        primarySource: "",
+        monthlyAvg: "",
+        consistency: "",
+        lastDeposit: "",
+        rent: "",
+        utilities: "",
+        missedPayments: "",
+      });
     
-        setLoading(true);
+      const handleChange = (e) => {
+        setForm({ ...form, [e.target.name]: e.target.value });
+      };
     
-        setTimeout(() => {
-          setLoading(false);
-          alert("Credit evaluation started");
-          console.log({
-            amount,
-            message,
-            loanPurpose,
-            tenure,
-            incomeSource,
-          });
-        }, 2000);
-    };    
+      const handleSubmit = () => {
+        console.log("Submitted Credit Profile:", form);
+        alert("Credit profile submitted for evaluation");
+      };
     
-    return (
-        <div className="min-h-screen bg-background flex items-center justify-center px-4">
-          <div className="w-full max-w-lg bg-white rounded-2xl shadow-xl p-8">
-            <h2 className="text-2xl font-bold text-primary mb-1">
-              Request Credit Evaluation
-            </h2>
+      return (
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-primary/20 to-white px-4 py-10">
+        <div className="w-full max-w-4xl bg-white rounded-2xl shadow-xl px-6 sm:px-8 lg:px-10 py-10">
+
+    
+            {/* Header */}
+            <h1 className="text-2xl font-bold text-primary mb-2">
+              Credit Profile Evaluation
+            </h1>
             <p className="text-sm text-text/70 mb-6">
-              Build credit using real-world financial behavior.
+              We evaluate real-world behavior — not just credit history.
             </p>
-            <input
-              type="number"
-              placeholder="Loan Amount (₹)"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-              className="w-full mb-4 px-4 py-3 rounded-lg border border-secondary/40
-                         text-text placeholder-text/50
-                         focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-            <input
-              type="text"
-              placeholder="Loan Purpose (Business, Education, etc.)"
-              value={loanPurpose}
-              onChange={(e) => setLoanPurpose(e.target.value)}
-              className="w-full mb-4 px-4 py-3 rounded-lg border border-secondary/40
-                         text-text placeholder-text/50
-                         focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-            <input
-              type="number"
-              placeholder="Loan Tenure (months)"
-              value={tenure}
-              onChange={(e) => setTenure(e.target.value)}
-              className="w-full mb-4 px-4 py-3 rounded-lg border border-secondary/40
-                         text-text placeholder-text/50
-                         focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-            <input
-              type="text"
-              placeholder="Primary Income Source (Gig / Business / Salary)"
-              value={incomeSource}
-              onChange={(e) => setIncomeSource(e.target.value)}
-              className="w-full mb-4 px-4 py-3 rounded-lg border border-secondary/40
-                         text-text placeholder-text/50
-                         focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-            <textarea
-              rows={3}
-              placeholder="Describe your credit request (optional)"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              className="w-full mb-6 px-4 py-3 rounded-lg border border-secondary/40
-                         text-text placeholder-text/50
-                         focus:outline-none focus:ring-2 focus:ring-primary"
-            />
+    
+            {/* SECTION A */}
+            <section className="mb-8 space-y-4">
+              <h3 className="text-lg font-semibold text-primary mb-4">
+                Section A: Persona
+              </h3>
+    
+              <select
+                name="occupation"
+                value={form.occupation}
+                onChange={handleChange}
+                className="w-full mb-4 px-4 py-3 rounded-lg border border-secondary/40 focus:ring-2 focus:ring-primary"
+              >
+                <option value="">Occupation Segment</option>
+                <option value="gig">Gig Worker</option>
+                <option value="student">Student</option>
+                <option value="freelancer">Freelancer</option>
+              </select>
+    
+              <input
+                type="number"
+                name="accountAge"
+                placeholder="Bank Account Age (months)"
+                value={form.accountAge}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-lg border border-secondary/40 focus:ring-2 focus:ring-primary"
+              />
+            </section>
+    
+            {/* SECTION B */}
+            <section className="mb-8 space-y-4">
+              <h3 className="text-lg font-semibold text-primary mb-4">
+                Section B: Income Streams
+              </h3>
+    
+              <input
+                type="text"
+                name="primarySource"
+                placeholder="Primary Income Source (Uber, Upwork, Allowance)"
+                value={form.primarySource}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-lg border border-secondary/40 focus:ring-2 focus:ring-primary"
+              />
+    
+              <input
+                type="number"
+                name="monthlyAvg"
+                placeholder="Monthly Average Income (₹)"
+                value={form.monthlyAvg}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-lg border border-secondary/40 focus:ring-2 focus:ring-primary"
+              />
+    
+              <select
+                name="consistency"
+                value={form.consistency}
+                onChange={handleChange}
+                className="w-full mb-4 px-4 py-3 rounded-lg border border-secondary/40 focus:ring-2 focus:ring-primary"
+              >
+                <option value="">Income Consistency</option>
+                <option value="high">High – Weekly</option>
+                <option value="medium">Medium – Irregular</option>
+                <option value="low">Low – Sporadic</option>
+              </select>
+    
+              <input
+                type="date"
+                name="lastDeposit"
+                value={form.lastDeposit}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-lg border border-secondary/40 focus:ring-2 focus:ring-primary"
+              />
+            </section>
+    
+            {/* SECTION C */}
+            <section className="mb-8 space-y-4">
+              <h3 className="text-lg font-semibold text-primary mb-4">
+                Section C: Life Obligations
+              </h3>
+    
+              <input
+                type="number"
+                name="rent"
+                placeholder="Rent / Housing (₹ per month)"
+                value={form.rent}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-lg border border-secondary/40 focus:ring-2 focus:ring-primary"
+              />
+    
+              <input
+                type="number"
+                name="utilities"
+                placeholder="Utilities (Phone / Internet / Electricity)"
+                value={form.utilities}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-lg border border-secondary/40 focus:ring-2 focus:ring-primary"
+              />
+    
+              <input
+                type="number"
+                name="missedPayments"
+                placeholder="Missed Payments (last 6 months)"
+                value={form.missedPayments}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-lg border border-secondary/40 focus:ring-2 focus:ring-primary"
+              />
+            </section>
+    
+            {/* Submit */}
             <button
               onClick={handleSubmit}
-              disabled={loading}
-              className={`w-full py-3 rounded-lg font-semibold text-white transition
-                ${loading
-                  ? "bg-secondary cursor-not-allowed"
-                  : "bg-primary hover:bg-secondary"}
-              `}
+              className="w-full bg-primary hover:bg-secondary text-white py-3 rounded-lg font-semibold transition"
             >
-              {loading ? "Evaluating..." : "Evaluate Credit"}
+              Run Credit Evaluation
             </button>
-            <div className="h-1 w-16 bg-accent rounded-full mx-auto mt-6" />
-
+    
             <p className="text-xs text-text/60 text-center mt-4">
-              Privacy-first • No bank data required • Secure by design
+              Your data is processed securely. Only decisions are shared.
             </p>
-          </div>
         </div>
+    </div>
       );
     }
