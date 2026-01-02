@@ -2,21 +2,20 @@ import { useState } from "react";
 
 export default function CreditDecision(){
     const decision="APPROVED";
-    const score=69;
+    const score=73;
     return(
         <div className="min min-h-screen
             flex items-start justify-center
             px-4 pt-20 pb-12
-            bg-gradient-to-br from-slate-900 via-primary/25 to-slate-900">
+            bg-gradient-to-br from-slate-900 via-primary/30 to-slate-900">
             <div className="
                 w-full max-w-3xl
-                bg-slate-800/90 backdrop-blur
-                rounded-2xl shadow-2xl
-                px-6 sm:px-8 lg:px-10 py-10
-                text-white">
+                bg-white
+                rounded-2xl shadow-xl
+                px-6 sm:px-8 lg:px-10 py-10">
                     <div className="text-center mb-8">
-                        <h1 className="text-3xl font-semibold tracking-tight">Credit Decision</h1>
-                        <p className="text-sm text-slate-400 mt-2">
+                        <h1 className="text-3xl font-semibold text-primary tracking-tight">Credit Decision</h1>
+                        <p className="text-sm text-text/70 mt-2">
                             Based on Verified income,behaviour, and stability signals
                         </p>
                     </div>
@@ -24,9 +23,9 @@ export default function CreditDecision(){
                     <div className="flex justify-center mb-6">
                     <span className={`
                         px-4 py-2 rounded-full text-sm font-semibold tracking-wide
-                        ${decision === "APPROVED" && "bg-green-500/20 text-green-400"}
-                        ${decision === "REVIEW" && "bg-yellow-500/20 text-yellow-400"}
-                        ${decision === "DECLINED" && "bg-red-500/20 text-red-400"}
+                        ${decision === "APPROVED" && "bg-green-500/15 text-green-600"}
+                        ${decision === "REVIEW" && "bg-yellow-500/15 text-yellow-600"}
+                        ${decision === "DECLINED" && "bg-red-500/15 text-red-600"}
                     `}>
                         {decision === "APPROVED" && "Approved"}
                         {decision === "REVIEW" && "Needs Manual Review"}
@@ -38,9 +37,9 @@ export default function CreditDecision(){
                         <p className="text-sm text-slate-400 mb-2">
                             Stability Index
                         </p>
-                        <div className="text-5xl font-bold text-white">
+                        <div className="text-5xl font-bold text-primary">
                             {score}
-                            <span className="text-xl text-slate-400"> / 100</span>
+                            <span className="text-xl text-text/60"> / 100</span>
                         </div>
                     </div>
 
@@ -49,7 +48,7 @@ export default function CreditDecision(){
                             Why this decision was made
                         </h3>
 
-                        <ul className="space-y-3 text-slate-300 text-sm">
+                        <ul className="space-y-3 text-text/80 text-sm">
                             <li>✔ Consistent income for the last 9 months</li>
                             <li>✔ Regular gig activity with predictable earnings</li>
                             <li>✔ No missed utility or rent payments in last 6 months</li>
@@ -57,11 +56,11 @@ export default function CreditDecision(){
                         </ul>
                     </div>
 
-                    <div className="bg-slate-900/60 rounded-xl p-6 mb-8">
+                    <div className="bg-background rounded-xl p-6 mb-8">
                     <h4 className="text-sm font-semibold mb-2">
                         What happens next
                     </h4>
-                    <p className="text-sm text-slate-400">
+                    <p className="text-sm text-text/70">
                         This decision has been cryptographically recorded.
                         Lenders can verify the outcome without accessing your private data.
                     </p>

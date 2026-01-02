@@ -1,6 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 export default function LoanRequest(){
+    const navigate = useNavigate();
+
     const [form, setForm] = useState({
         occupation: "",
         accountAge: "",
@@ -19,8 +23,10 @@ export default function LoanRequest(){
     
       const handleSubmit = () => {
         console.log("Submitted Credit Profile:", form);
-        alert("Credit profile submitted for evaluation");
-      };
+        setTimeout(() => {
+            navigate("/decision");
+        }, 1200);
+        };
     
       return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-primary/25 to-slate-900
@@ -39,7 +45,7 @@ export default function LoanRequest(){
             {/* SECTION A */}
             <section className="mb-8 space-y-4">
                <h3 className="text-base font-semibold text-primary/90 uppercase tracking-wide">
-                Section A: Persona
+                Persona
               </h3>
     
               <select
@@ -77,7 +83,7 @@ export default function LoanRequest(){
             {/* SECTION B */}
             <section className="mb-8 space-y-4">
               <h3 className="text-base font-semibold text-primary/90 uppercase tracking-wide">
-                Section B: Income Streams
+                Income Streams
               </h3>
     
               <input
@@ -142,7 +148,7 @@ export default function LoanRequest(){
             {/* SECTION C */}
             <section className="mb-8 space-y-4">
               <h3 className="text-base font-semibold text-primary/90 uppercase tracking-wide">
-                Section C: Life Obligations
+                Life Obligations
               </h3>
     
               <input
