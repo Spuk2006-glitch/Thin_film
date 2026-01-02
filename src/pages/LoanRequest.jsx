@@ -22,11 +22,33 @@ export default function LoanRequest(){
       };
     
       const handleSubmit = () => {
+        const requiredFields = [
+          "occupation",
+          "accountAge",
+          "primarySource",
+          "monthlyAvg",
+          "consistency",
+          "lastDeposit",
+          "rent",
+          "utilities",
+          "missedPayments",
+        ];
+      
+        const hasEmptyField = requiredFields.some(
+          (field) => !form[field] || form[field].toString().trim() === ""
+        );
+      
+        if (hasEmptyField) {
+          alert("Please fill in all required fields before proceeding.");
+          return;
+        }
+      
         console.log("Submitted Credit Profile:", form);
         setTimeout(() => {
-            navigate("/decision");
+          navigate("/decision");
         }, 1200);
-        };
+      };
+      
     
       return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-primary/25 to-slate-900
