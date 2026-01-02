@@ -23,9 +23,8 @@ export default function LoanRequest(){
       };
     
       return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-primary/30 to-slate-900
-
- px-4 pt-20 pb-12">
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-primary/25 to-slate-900
+        px-4 pt-20 pb-12">
         <div className="w-full max-w-4xl bg-white rounded-2xl shadow-xl px-6 sm:px-8 lg:px-10 py-10">
 
     
