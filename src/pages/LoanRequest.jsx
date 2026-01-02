@@ -23,12 +23,14 @@ export default function LoanRequest(){
       };
     
       return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-primary/20 to-white px-4 py-10">
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-primary/30 to-slate-900
+
+ px-4 pt-20 pb-12">
         <div className="w-full max-w-4xl bg-white rounded-2xl shadow-xl px-6 sm:px-8 lg:px-10 py-10">
 
     
             {/* Header */}
-            <h1 className="text-2xl font-bold text-primary mb-2">
+            <h1 className="text-3xl font-semibold text-primary tracking-tight">
               Credit Profile Evaluation
             </h1>
             <p className="text-sm text-text/70 mb-6">
@@ -37,7 +39,7 @@ export default function LoanRequest(){
     
             {/* SECTION A */}
             <section className="mb-8 space-y-4">
-              <h3 className="text-lg font-semibold text-primary mb-4">
+               <h3 className="text-base font-semibold text-primary/90 uppercase tracking-wide">
                 Section A: Persona
               </h3>
     
@@ -59,13 +61,23 @@ export default function LoanRequest(){
                 placeholder="Bank Account Age (months)"
                 value={form.accountAge}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-secondary/40 focus:ring-2 focus:ring-primary"
+                className="
+                w-full px-4 py-3 rounded-lg
+                border border-secondary/30
+                bg-white
+                text-text
+                placeholder-text/50
+                focus:outline-none
+                focus:ring-2 focus:ring-primary/40
+                focus:border-primary
+                "
+
               />
             </section>
     
             {/* SECTION B */}
             <section className="mb-8 space-y-4">
-              <h3 className="text-lg font-semibold text-primary mb-4">
+              <h3 className="text-base font-semibold text-primary/90 uppercase tracking-wide">
                 Section B: Income Streams
               </h3>
     
@@ -84,7 +96,17 @@ export default function LoanRequest(){
                 placeholder="Monthly Average Income (₹)"
                 value={form.monthlyAvg}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-secondary/40 focus:ring-2 focus:ring-primary"
+                className="
+                    w-full px-4 py-3 rounded-lg
+                    border border-secondary/30
+                    bg-white
+                    text-text
+                    placeholder-text/50
+                    focus:outline-none
+                    focus:ring-2 focus:ring-primary/40
+                    focus:border-primary
+                    "
+
               />
     
               <select
@@ -104,13 +126,23 @@ export default function LoanRequest(){
                 name="lastDeposit"
                 value={form.lastDeposit}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-secondary/40 focus:ring-2 focus:ring-primary"
+                className="
+                w-full px-4 py-3 rounded-lg
+                border border-secondary/30
+                bg-white
+                text-text
+                placeholder-text/50
+                focus:outline-none
+                focus:ring-2 focus:ring-primary/40
+                focus:border-primary
+                "
+
               />
             </section>
     
             {/* SECTION C */}
             <section className="mb-8 space-y-4">
-              <h3 className="text-lg font-semibold text-primary mb-4">
+              <h3 className="text-base font-semibold text-primary/90 uppercase tracking-wide">
                 Section C: Life Obligations
               </h3>
     
@@ -120,7 +152,17 @@ export default function LoanRequest(){
                 placeholder="Rent / Housing (₹ per month)"
                 value={form.rent}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-secondary/40 focus:ring-2 focus:ring-primary"
+                className="
+                w-full px-4 py-3 rounded-lg
+                border border-secondary/30
+                bg-white
+                text-text
+                placeholder-text/50
+                focus:outline-none
+                focus:ring-2 focus:ring-primary/40
+                focus:border-primary
+                "
+
               />
     
               <input
@@ -129,7 +171,17 @@ export default function LoanRequest(){
                 placeholder="Utilities (Phone / Internet / Electricity)"
                 value={form.utilities}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-secondary/40 focus:ring-2 focus:ring-primary"
+                className="
+                w-full px-4 py-3 rounded-lg
+                border border-secondary/30
+                bg-white
+                text-text
+                placeholder-text/50
+                focus:outline-none
+                focus:ring-2 focus:ring-primary/40
+                focus:border-primary
+                "
+
               />
     
               <input
@@ -138,7 +190,17 @@ export default function LoanRequest(){
                 placeholder="Missed Payments (last 6 months)"
                 value={form.missedPayments}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-secondary/40 focus:ring-2 focus:ring-primary"
+                className="
+                w-full px-4 py-3 rounded-lg
+                border border-secondary/30
+                bg-white
+                text-text
+                placeholder-text/50
+                focus:outline-none
+                focus:ring-2 focus:ring-primary/40
+                focus:border-primary
+                "
+
               />
             </section>
     
